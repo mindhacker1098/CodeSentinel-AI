@@ -1,0 +1,68 @@
+.split {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  background: var(--ag-bg);
+}
+
+.identity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 56px;
+  background: var(--ag-surface);
+  border-right: 1px solid var(--ag-line);
+}
+
+.formSide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+}
+.formSide:focus { outline: none; }
+
+.sample {
+  border: 1px solid var(--ag-line);
+  border-radius: 8px;
+  background: var(--ag-bg);
+  padding: 16px 16px 14px;
+}
+
+.swatch {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  margin-top: 6px;
+  border-radius: 2px;
+  background: var(--ag-pass);
+}
+.swatch[data-status='partial'] { background: var(--ag-warn); }
+.swatch[data-status='fail'] { background: var(--ag-fail); }
+
+@media (max-width: 62em) {
+  .split { grid-template-columns: 1fr; }
+  .identity { display: none; }
+  .formSide { align-items: flex-start; padding-top: 12vh; }
+}
+
+/* Standalone page (forced password change): a single column with a slim top bar. */
+.standalone {
+  min-height: 100vh;
+  background: var(--ag-bg);
+}
+.standaloneBar {
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background: var(--ag-surface);
+  border-bottom: 1px solid var(--ag-line);
+}
+.standaloneBody {
+  display: flex;
+  justify-content: center;
+  padding: 48px 16px;
+}
+.standaloneBody:focus { outline: none; }

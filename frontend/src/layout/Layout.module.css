@@ -1,0 +1,100 @@
+.shell {
+  min-height: 100vh;
+}
+
+.header {
+  background: var(--ag-surface);
+  border-bottom: 1px solid var(--ag-line);
+}
+
+.navbar {
+  background: var(--ag-surface);
+  border-right: 1px solid var(--ag-line);
+}
+
+.groupLabel {
+  letter-spacing: 0;
+}
+
+.groupRule {
+  height: 1px;
+  background: var(--ag-line);
+  margin: 8px 6px;
+}
+
+.navLink {
+  border-radius: 4px;
+  height: 34px;
+  color: var(--ag-text);
+}
+.navLink[data-compact] {
+  justify-content: center;
+  padding: 0;
+}
+.navLink[data-compact] :global(.mantine-NavLink-section) {
+  margin: 0;
+}
+.navLink[data-active] {
+  box-shadow: inset 2px 0 0 var(--ag-iris);
+}
+
+.dot {
+  position: absolute;
+  top: -3px;
+  right: -4px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ag-info);
+  box-shadow: 0 0 0 2px var(--ag-surface);
+}
+.dot[data-tone='warn'] { background: var(--ag-warn); }
+.dot[data-tone='fail'] { background: var(--ag-fail); }
+
+.navFooter {
+  border-top: 1px solid var(--ag-line);
+}
+
+.main {
+  background: var(--ag-bg);
+  min-height: 100vh;
+}
+.main:focus { outline: none; }
+
+.content {
+  max-width: var(--ag-content-max);
+  padding: 24px 32px 48px;
+}
+@media (max-width: 48em) {
+  .content { padding: 16px 14px 40px; }
+}
+
+.queueBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+.queueBtn:hover { background: var(--ag-raised); }
+
+.queueDot {
+  position: relative;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--ag-pass);
+}
+.queueDot[data-tone='info'] { background: var(--ag-info); }
+.queueDot[data-tone='warn'] { background: var(--ag-warn); }
+.queueDot[data-tone='fail'] { background: var(--ag-fail); }
+.queueDot[data-live] {
+  /* Running: a static halo, no pulse (the only ambient motion allowed is the verdict bar fill). */
+  box-shadow: 0 0 0 3px rgba(91, 184, 232, 0.25);
+}
+
+.userBtn {
+  padding: 3px 6px 3px 3px;
+  border-radius: 18px;
+}
+.userBtn:hover { background: var(--ag-raised); }

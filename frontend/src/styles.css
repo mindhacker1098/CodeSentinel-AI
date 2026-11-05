@@ -1,0 +1,100 @@
+/* Global styles. Tokens live in src/theme/tokens.ts and are exposed as --ag-* variables. */
+
+html, body, #root { min-height: 100%; }
+body {
+  background: var(--ag-bg);
+  color: var(--ag-text);
+  font-feature-settings: 'tnum' 0;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: rgba(139, 156, 255, 0.35); }
+
+/* Surfaces: panels sit one step above the page, popovers and inputs one more. */
+.mantine-Paper-root, .mantine-Card-root { background-color: var(--ag-surface); }
+.mantine-Modal-content, .mantine-Drawer-content { background-color: var(--ag-surface); }
+.mantine-Modal-header, .mantine-Drawer-header { background-color: var(--ag-surface); }
+.mantine-Popover-dropdown, .mantine-Menu-dropdown, .mantine-Combobox-dropdown, .mantine-HoverCard-dropdown {
+  background-color: var(--ag-raised);
+  border-color: var(--ag-line);
+}
+.mantine-Tooltip-tooltip { background: #2F3A50; color: var(--ag-text); border: 1px solid #3B4963; font-size: 13px; }
+.mantine-Tooltip-arrow { background: #2F3A50; border: 1px solid #3B4963; }
+.mantine-Notification-root { background-color: var(--ag-raised); border-color: var(--ag-line); }
+
+/* Tables: dense 36px rows, quiet header, surface hover. */
+.mantine-Table-thead { background: var(--ag-surface); }
+.mantine-Table-th { color: var(--ag-muted); font-weight: 500; font-size: 13px; white-space: nowrap; }
+.mantine-Table-tr { border-color: var(--ag-line); }
+.mantine-Table-table { --table-hover-color: var(--ag-raised); --table-border-color: var(--ag-line); }
+
+/* Focus ring: iris, 2px, always visible for keyboard users. */
+:focus-visible { outline: 2px solid var(--ag-iris); outline-offset: 2px; }
+
+/* Numbers that should line up. */
+.ag-num { font-variant-numeric: tabular-nums; }
+.ag-mono { font-family: var(--mantine-font-family-monospace); }
+.ag-prose { max-width: var(--ag-prose-max); }
+
+/* Skip link: hidden until focused. */
+.ag-skip {
+  position: absolute; left: 12px; top: -48px; z-index: 1000;
+  background: var(--ag-iris); color: #10131c; padding: 8px 14px; border-radius: 4px;
+  font-weight: 600; text-decoration: none; transition: top 120ms ease;
+}
+.ag-skip:focus { top: 10px; }
+
+/* Visually hidden but read by screen readers. */
+.ag-sr-only {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+/* Region highlight colours for the plagiarism pair view (dark-friendly). */
+.ag-region-0 { background: rgba(227, 174, 69, 0.28); }
+.ag-region-1 { background: rgba(91, 184, 232, 0.28); }
+.ag-region-2 { background: rgba(61, 190, 139, 0.28); }
+.ag-region-3 { background: rgba(242, 112, 107, 0.28); }
+.ag-region-4 { background: rgba(139, 156, 255, 0.30); }
+.ag-region-5 { background: rgba(240, 150, 80, 0.28); }
+.ag-region-gutter-0 { background: #E3AE45; width: 4px !important; margin-left: 3px; }
+.ag-region-gutter-1 { background: #5BB8E8; width: 4px !important; margin-left: 3px; }
+.ag-region-gutter-2 { background: #3DBE8B; width: 4px !important; margin-left: 3px; }
+.ag-region-gutter-3 { background: #F2706B; width: 4px !important; margin-left: 3px; }
+.ag-region-gutter-4 { background: #8B9CFF; width: 4px !important; margin-left: 3px; }
+.ag-region-gutter-5 { background: #F09650; width: 4px !important; margin-left: 3px; }
+
+/* Markdown (problem statements). */
+.ag-md { max-width: var(--ag-prose-max); line-height: 1.6; }
+.ag-md pre {
+  background: var(--ag-bg);
+  border: 1px solid var(--ag-line);
+  border-radius: 4px;
+  padding: 8px 10px;
+  overflow-x: auto;
+  font-size: 13px;
+}
+.ag-md code { font-family: var(--mantine-font-family-monospace); font-size: 13px; }
+.ag-md p > code, .ag-md li > code {
+  background: var(--ag-raised);
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+.ag-md h1, .ag-md h2, .ag-md h3 { margin: 1em 0 0.4em; font-weight: 600; }
+.ag-md h1 { font-size: 20px; }
+.ag-md h2 { font-size: 16px; }
+.ag-md h3 { font-size: 14px; }
+.ag-md p { margin: 0.5em 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* Code shows the characters the student typed: no "!=" -> "≠" ligatures from JetBrains Mono. */
+code,
+pre,
+kbd,
+.ag-mono,
+.monaco-editor {
+  font-variant-ligatures: none;
+  font-feature-settings: 'calt' 0, 'liga' 0;
+}
